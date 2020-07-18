@@ -4,7 +4,14 @@
 
 const express = require('express')
 const app = express()
+const users = require('./routes/user')
 
-app.listen(3000, function() {
-  console.log('listening on http://localhost:3000')
+app.use('/api', users) //localhost:3000/api/users
+
+app.get('/', function(req,res) {
+  res.send('Hello world')
+})
+
+app.listen(5000, function() {
+  console.log('listening on http://localhost:5000')
 })
